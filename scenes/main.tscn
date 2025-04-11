@@ -1,0 +1,231 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxudhddixw72e"]
+
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_xwfal"]
+[ext_resource type="Shader" path="res://shaders/bg.gdshader" id="2_4y1y1"]
+[ext_resource type="Texture2D" uid="uid://dh6gta5vatm7m" path="res://icon.svg" id="3_1stln"]
+[ext_resource type="Theme" uid="uid://pdk7pyk6j8c7" path="res://themes/main_theme.tres" id="4_r2ise"]
+[ext_resource type="PackedScene" uid="uid://b7b8dwoiqjb8w" path="res://scenes/dropdown.tscn" id="5_if2qk"]
+[ext_resource type="Texture2D" uid="uid://s2vg72yjshox" path="res://sprites/empty_img.png" id="5_r2smq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5li6n"]
+frequency = 0.008
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ekv43"]
+seamless = true
+noise = SubResource("FastNoiseLite_5li6n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqgi4"]
+shader = ExtResource("2_4y1y1")
+shader_parameter/main_color = Color(0.3375, 0.57125, 0.75, 1)
+shader_parameter/second_color = Color(0.443137, 0.619608, 0.756863, 1)
+shader_parameter/scroll = Vector2(0.05, 0.05)
+shader_parameter/noise = SubResource("NoiseTexture2D_ekv43")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_xwfal")
+
+[node name="BG" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nqgi4")
+position = Vector2(640, 360)
+scale = Vector2(10, 5.625)
+texture = ExtResource("3_1stln")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 10.0
+offset_right = 225.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme = ExtResource("4_r2ise")
+theme_override_font_sizes/font_size = 64
+text = "Pixel Sourcerer"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 220.0
+offset_top = 680.0
+offset_right = 640.0
+offset_bottom = 716.0
+grow_horizontal = 2
+theme = ExtResource("4_r2ise")
+text = "Created by Randoraz from Solanum Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapFileDialog" type="FileDialog" parent="Control"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 300)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png,*.jpg,*.webp;Image files")
+
+[node name="MapButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 150.0
+offset_right = 250.0
+offset_bottom = 200.0
+theme = ExtResource("4_r2ise")
+text = "Upload"
+
+[node name="OverlayFileDialog" type="FileDialog" parent="Control"]
+auto_translate_mode = 1
+title = "Open File(s)"
+initial_position = 1
+size = Vector2i(500, 300)
+ok_button_text = "Open"
+file_mode = 1
+access = 2
+filters = PackedStringArray("*.png,*.jpg,*.webp;Image files")
+
+[node name="OverlayButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 150.0
+offset_right = 695.0
+offset_bottom = 200.0
+theme = ExtResource("4_r2ise")
+text = "Upload"
+
+[node name="OverlayItemList" type="ItemList" parent="Control"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 370.0
+offset_right = 750.0
+offset_bottom = 490.0
+theme = ExtResource("4_r2ise")
+auto_height = true
+
+[node name="SaveSourceFileDialog" type="FileDialog" parent="Control"]
+auto_translate_mode = 1
+title = "Save source images"
+initial_position = 1
+size = Vector2i(500, 300)
+ok_button_text = "Save"
+access = 2
+
+[node name="SaveButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 600.0
+offset_right = 695.0
+offset_bottom = 650.0
+theme = ExtResource("4_r2ise")
+text = "Save"
+
+[node name="GenerateButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 150.0
+offset_right = 1160.0
+offset_bottom = 200.0
+theme = ExtResource("4_r2ise")
+text = "Generate"
+
+[node name="SourceItemList" type="ItemList" parent="Control"]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 370.0
+offset_right = 1215.0
+offset_bottom = 490.0
+theme = ExtResource("4_r2ise")
+auto_height = true
+
+[node name="LookupFileDialog" type="FileDialog" parent="Control"]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 300)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png,*.jpg,*.webp;Image files")
+
+[node name="LookupButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 485.0
+offset_right = 250.0
+offset_bottom = 535.0
+theme = ExtResource("4_r2ise")
+text = "Upload"
+
+[node name="MapLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 109.0
+offset_right = 299.0
+offset_bottom = 133.0
+theme = ExtResource("4_r2ise")
+text = "1. Upload the map image"
+horizontal_alignment = 1
+
+[node name="OverlayLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 109.0
+offset_right = 775.0
+offset_bottom = 133.0
+theme = ExtResource("4_r2ise")
+text = "2. Upload the overlay image(s)"
+horizontal_alignment = 1
+
+[node name="SourceLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 110.0
+offset_right = 1247.0
+offset_bottom = 134.0
+theme = ExtResource("4_r2ise")
+text = "3. Generate the source image(s)"
+horizontal_alignment = 1
+
+[node name="LookupLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 390.0
+offset_right = 350.0
+offset_bottom = 470.0
+theme = ExtResource("4_r2ise")
+text = "4. Upload the lookup image and select a source to see how your sprite(s) will look like"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Dropdown" parent="Control" instance=ExtResource("5_if2qk")]
+layout_mode = 1
+offset_left = 705.0
+offset_top = 600.0
+offset_right = -405.0
+offset_bottom = -50.0
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+position = Vector2(185, 280)
+texture = ExtResource("5_r2smq")
+
+[node name="OverlaySprite" type="Sprite2D" parent="."]
+position = Vector2(630, 280)
+texture = ExtResource("5_r2smq")
+
+[node name="SourceSprite" type="Sprite2D" parent="."]
+position = Vector2(1095, 280)
+texture = ExtResource("5_r2smq")
+
+[node name="PreviewSprite" type="Sprite2D" parent="."]
+position = Vector2(185, 615)
+texture = ExtResource("5_r2smq")

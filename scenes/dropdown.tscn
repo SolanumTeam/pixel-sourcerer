@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7b8dwoiqjb8w"]
+
+[ext_resource type="Theme" uid="uid://basbxydsa4vs4" path="res://themes/dropdown_theme.tres" id="1_2qwaa"]
+[ext_resource type="Script" path="res://scripts/Dropdown.cs" id="1_whdsi"]
+
+[node name="Dropdown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1110.0
+offset_bottom = -650.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_whdsi")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 32.0
+theme = ExtResource("1_2qwaa")
+text = "file format"
+alignment = 0
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 138.0
+offset_bottom = 70.0
+theme = ExtResource("1_2qwaa")
+auto_height = true

@@ -1,12 +1,14 @@
 # pixel-sourcerer
 
-A source image generator made in Godot, for Godot
+A source image generator made in Godot 4.3, for Godot
 
 ## Description
 
 Pixel Sourcerer can generate source images from a map image and any overlay images. Source images can be used together with a color lookup table and simple shader to provide an easy way to modify your pixel art characters' appearence without having to create a different set of sprites with the same animations for each different skin you want to add.
 
 You are free to use any code in this project in your own projects, including the shader and the image generation code! But please mention the source if you do so.
+
+You can download Pixel Sourcerer by cloning this repository, downloading the "Pixel Sourcerer.zip" file, or downloading it from our (Itchio)[https://solanumteam.itch.io/pixel-sourcerer]
 
 ## Instructions
 
