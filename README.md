@@ -8,7 +8,7 @@ Pixel Sourcerer can generate source images from a map image and any overlay imag
 
 You are free to use any code in this project in your own projects, including the shader and the image generation code! But please mention the source if you do so.
 
-You can download Pixel Sourcerer by cloning this repository, downloading the "Pixel Sourcerer.zip" file, or downloading it from our (Itchio)[https://solanumteam.itch.io/pixel-sourcerer]
+You can download Pixel Sourcerer by cloning this repository, downloading the "Pixel Sourcerer.zip" file, or downloading it from our [Itchio](https://solanumteam.itch.io/pixel-sourcerer)
 
 ## Instructions
 
